@@ -6,6 +6,7 @@ resource "aws_instance""instance"{
   tags = { Name = each.value["name"]}
 }
 resource "null_resource""provisioner"{
+  depends_on = [aws_instance.instance,aws_route53_record.records]
   for_each = var.component
   provisioner "remote-exec" {
     connection {
