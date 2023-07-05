@@ -22,6 +22,7 @@ user = {
 cart = {
   name = "cart"
   instance_type = "t3.micro"
+  password ="RoboShop@1"
 }
 mysql = {
   name = "mysql"
@@ -34,10 +35,12 @@ shipping = {
 rabbitmq = {
   name = "rabbitmq"
   instance_type = "t3.small"
+  password ="roboshop123"
 }
 payment = {
   name = "payment"
   instance_type = "t3.small"
+  password ="roboshop123"
 }
 }
 env = "dev"
