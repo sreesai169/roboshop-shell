@@ -3,7 +3,9 @@ resource "aws_instance" "instance"{
   ami              =   data.aws_ami.centos.image_id
   instance_type = var.instance_type
   vpc_security_group_ids = [ data.aws_security_group.allow-all.id ]
-  tags = { Name = var.component_name}
+  tags = {
+    Name = local.name
+  }
 }
 resource "null_resource" "provisioner"{
   depends_on = [aws_instance.instance,aws_route53_record.records]
@@ -17,9 +19,10 @@ resource "null_resource" "provisioner"{
     }
 
     inline=[
-      "rm -rf roboshop-shell",
-      "git clone https://github.com/sreesai169/roboshop-shell.git",
-      "cd roboshop-shell",
+      "rm -rf Roboshop-learn-shell",
+      "git clone https://github.com/sreesai169/Roboshop-learn-shell.git",
+      "cd Roboshop-learn-shell",
+      "ls",
       "bash ${var.component_name}.sh ${var.password}"
     ]
   }
