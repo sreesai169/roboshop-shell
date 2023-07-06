@@ -17,9 +17,9 @@ resource "null_resource" "provisioner"{
     }
 
     inline=[
-      "rm -rf Roboshop-learn-shell",
-      "git clone https://github.com/sreesai169/Roboshop-learn-shell.git",
-      "cd Roboshop-learn-shell",
+      "rm -rf roboshop-shell",
+      "git clone https://github.com/sreesai169/roboshop-shell.git",
+      "cd roboshop-shell",
       "bash ${var.component_name}.sh ${var.password}"
     ]
   }
