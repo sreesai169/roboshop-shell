@@ -1,4 +1,4 @@
-resource "aws_instance""instance"{
+resource "aws_instance" "instance"{
   for_each = var.component
   ami              =   data.aws_ami.centos.image_id
   instance_type = each.value["instance_type"]
@@ -24,7 +24,7 @@ resource "null_resource" "provisioner"{
     ]
   }
 }
-resource "aws_route53_record""records"{
+resource "aws_route53_record" "records"{
   for_each = var.component
   name    = "${each.value["name"]}-dev.devops16.online"
   type    = "A"
