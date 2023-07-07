@@ -29,7 +29,7 @@ app_servers = {
 }
 env = "dev"
 
-databases_servers = {
+database_servers = {
 
   rabbitmq = {
     name = "rabbitmq"
