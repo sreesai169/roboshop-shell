@@ -19,13 +19,7 @@ resource "null_resource" "provisioner"{
       host = aws_instance.instance.private_ip
     }
 
-    inline=[
-      "rm -rf Roboshop-learn-shell",
-      "git clone https://github.com/sreesai169/Roboshop-learn-shell.git",
-      "cd Roboshop-learn-shell",
-      "ls",
-      "bash ${var.component_name}.sh ${var.password}"
-    ]
+    inline= var.app_type == "db" ? local.db_commands : local.app_commands
   }
 }
 resource "aws_route53_record" "records"{
