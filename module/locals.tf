@@ -8,7 +8,8 @@ locals {
     "bash ${var.component_name}.sh ${var.password}"
   ]
   app_commands=[
-    "labauto ansible",
-    "ansible-pull -i localhost, -U https://github.com/sreesai169/roboshop-ansible roboshop.yml -e env=${var.env} -e role_name=${var.component_name}"
+//   "labauto ansible",
+//    "ansible-pull -i localhost, -U https://github.com/sreesai169/roboshop-ansible roboshop.yml -e env=${var.env} -e role_name=${var.component_name}"
+    "echo OK"
   ]
 }
