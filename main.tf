@@ -16,6 +16,7 @@ module "app" {
   min_size = each.value["min_size"]
   env = var.env
   bastion_cidr = var.bastion_cidr
+  tags = local.tags
   instance_type = each.value["instance_type"]
   subnet_ids = lookup(lookup(lookup(lookup(module.vpc,"main",null),"subnets",null),each.value["subnet_name"],null),"subnet_ids",null)
   vpc_id = lookup(lookup(module.vpc,"main",null),"vpc_id",null)
